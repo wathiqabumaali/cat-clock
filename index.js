@@ -3,6 +3,7 @@ var noon = 12;
 var lunchTime = 12;
 var napTime = lunchTime + 2;
 var partyTime;
+var gameTime = 20;
 var evening = 18; //18 = 6pm
 
 //Getting it to show the current time on the page
@@ -66,8 +67,8 @@ var updateClock = function(){
     	messageText = "Sleep tight!";
 	}
 	else if (time < noon){
-		image = "https://pbs.twimg.com/profile_images/378800000532546226/dbe5f0727b69487016ffd67a6689e75a.jpeg";
-    	messageText = "Good morning!";
+		image = "http://darkroom.baltimoresun.com/wp-content/uploads/2013/01/2012-Ferron.jpg";
+    	messageText = "WAKE UP! IT'S GAME TIME!";
 	}
 	else if (time >= evening){
 		image = "https://upload.wikimedia.org/wikipedia/commons/8/8c/Cat_sleep.jpg";
@@ -78,7 +79,7 @@ var updateClock = function(){
     	messageText = "Good afternoon!";
   }
   timeEventJS.innerText = messageText;
-  lolcatImage.src = image
+  lolcatImageJS.src = image
 
   showCurrentTime();
 };
@@ -111,10 +112,27 @@ partyEvent();
 //activates wake-up selector
 var wakeUpTimeSelector = document.getElementById("wakeUpTimeSelector");
 
-var wakeUpEvent = function();{
+var wakeUpEvent = function(){
 	wakeUpTime = wakeUpTimeSelector.value;
 };
 
+wakeUpTimeSelector.addEventListener("change", wakeUpEvent);
 
+//activates lunch selector
+var lunchTimeSelector = document.getElementById("lunchTimeSelector");
 
+var lunchEvent = function(){
+	lunchTime = lunchTimeSelector.value;
+}
+
+lunchTimeSelector.addEventListener("change", lunchEvent)
+
+//Activates nap-time selector
+var napTimeSelector = document.getElementById("napTimeSelector");
+
+var napEvent = function(){
+	napTime = napTimeSelector.value;
+}
+
+napTimeSelector.addEventListener("change", napEvent)
 
